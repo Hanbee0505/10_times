@@ -1,5 +1,5 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2024 Ben
+# SPDX-FileCopyrightText: 2024 Hanbee Choi
 # SPDX-License-Identifier: BSD-3-Clause
 
 while read -r line; do
