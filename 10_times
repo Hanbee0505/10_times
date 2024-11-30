@@ -1,16 +1,18 @@
-#!/usr/bin/env python3
-# SPDX-FileCopyrightText: 2024 Hanbee Choi
+#!/bin/bash
+# SPDX-FileCopyrightText: 2024 Ben
 # SPDX-License-Identifier: BSD-3-Clause
 
-import sys
+while read -r line; do
+    # 入力の空白や改行を削除
+    input=$(echo "$line" | xargs)
 
-for line in sys.stdin:
-    suuji = line.strip()
-
-    if suuji.isdigit():
-        kazu = int(suuji)
-        kekka = kazu * 10  # 10倍に変更
-        print(kekka)
-    else:
-        print("正確な数値ではありません。")
-
+    # 数値かどうかをチェック
+    if [[ "$input" =~ ^[0-9]+$ ]]; then
+        # 数値を10倍にして表示
+        result=$((input * 10))
+        echo "$result"
+    else
+        # 数値以外の入力があった場合
+        echo "正確な数値ではありません。"
+    fi
+done
