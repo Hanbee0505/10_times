@@ -1,0 +1,27 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushされたときにテストを実行
+  pull_request:
+    branches:
+      - main  # mainブランチに対するプルリクエスト時にもテストを実行
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Ubuntu環境で実行
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3  # コードをチェックアウト
+
+    - name: Set up Bash
+      run: sudo apt-get install bash  # Bashをインストール（Ubuntuには標準でインストールされていますが、念のため）
+
+    - name: Give execute permissions to the test script
+      run: chmod +x test.bash  # test.bashに実行権限を与える
+
+    - name: Run the test script
+      run: ./test.bash  # test.bashを実行
+
