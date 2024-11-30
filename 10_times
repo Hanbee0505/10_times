@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+def main():
+    try:
+        # 標準入力から値を取得し、整数に変換
+        num = int(input().strip())
+        # 10倍にして出力
+        print(num * 10)
+    except ValueError:
+        # 数値以外の入力に対するエラーメッセージ
+        print("数値を入力してください")
+
+if __name__ == "__main__":
+    main()
